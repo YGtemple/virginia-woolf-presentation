@@ -187,6 +187,14 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
 .progress{position:fixed;top:64px;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-soft));z-index:69;transition:width .5s;}
 .pageno{position:fixed;right:40px;bottom:34px;z-index:60;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.08rem;color:var(--pine);letter-spacing:.12em;}
 .keyhint{position:fixed;left:40px;bottom:36px;z-index:60;font-size:.8rem;letter-spacing:.08em;color:var(--ink-soft);}
+/* 底部居中翻页箭头（融入背景） */
+.nav-arrows{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;display:flex;gap:.5rem;}
+.arrow-btn{width:42px;height:42px;border-radius:50%;padding:0;cursor:pointer;border:1px solid var(--line);background:var(--bg);color:var(--pine);display:flex;align-items:center;justify-content:center;opacity:.7;transition:opacity .25s,background .25s,color .25s,border-color .25s,transform .15s;}
+.arrow-btn svg{width:20px;height:20px;}
+.arrow-btn:hover{opacity:1;background:var(--pine);color:#fff;border-color:var(--pine);}
+.arrow-btn:active{transform:scale(.93);}
+.arrow-btn:disabled{opacity:.28;cursor:default;background:var(--bg);color:var(--pine);border-color:var(--line);transform:none;}
+@media (max-width:600px){.keyhint{display:none;}}
 
 /* 灯箱 */
 .lightbox{position:fixed;inset:0;background:rgba(30,26,18,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:6vh 6vw;}
@@ -853,6 +861,14 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
 </main>
 
 <div class="keyhint en">← → keys &nbsp;·&nbsp; swipe</div>
+<div class="nav-arrows" id="navArrows">
+  <button class="arrow-btn" id="prevBtn" aria-label="Previous slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="arrow-btn" id="nextBtn" aria-label="Next slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>
 <div class="pageno" id="pageno">01 / 22</div>
 
 <!-- 灯箱 -->
@@ -867,6 +883,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
   var slides=Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var total=slides.length,cur=0;
   var progress=document.getElementById('progress'),pageno=document.getElementById('pageno');
+  var prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn');
   var navBtns=Array.prototype.slice.call(document.querySelectorAll('.nav-links button'));
   var bounds=[[0,2],[3,9],[10,13],[14,19],[20,21]];
   function pad(n){return(n<10?'0':'')+n;}
@@ -881,8 +898,11 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
     pageno.textContent=pad(cur+1)+' / '+pad(total);
     var s=secOf(cur);
     navBtns.forEach(function(b,i){b.classList.toggle('on',i===s);});
+    prevBtn.disabled=cur===0;nextBtn.disabled=cur===total-1;
   }
   function next(){go(cur+1);}function prev(){go(cur-1);}
+  prevBtn.addEventListener('click',function(){prev();this.blur();});
+  nextBtn.addEventListener('click',function(){next();this.blur();});
   document.addEventListener('keydown',function(e){
     // 灯箱打开时：仅处理 Escape，其余按键不穿透到底牌
     if(document.getElementById('lightbox').classList.contains('open')){
