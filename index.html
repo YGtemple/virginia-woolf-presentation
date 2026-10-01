@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virginia Woolf · 弗吉尼亚·伍尔夫 | 演讲人 王佳琦</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231f3a34'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23b08d57' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://media.doubao.com">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap">
+<style>
+:root{
+  --bg:#eae2cf; --paper:#f4eedd; --surface:#fffdf5; --surface-2:#efe7d2;
+  --ink:#2c271f; --pine:#31473a; --pine-soft:#48604f;
+  --wine:#7d2f33; --gold:#a6874a; --gold-soft:#c4a870; --gold-num:#8a6d35;
+  --ink-soft:#5d5443; --line:#d8ccaf; --line-soft:#e5dbc2;
+  --shadow:0 24px 52px -24px rgba(58,45,24,.5);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:'Noto Serif SC',Georgia,'Songti SC',serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(120,98,58,.06) 1px,transparent 1px);background-size:6px 6px;}
+::selection{background:var(--gold);color:#fff;}
+.en{font-family:'Cormorant Garamond',Georgia,serif;}
+
+/* ===== 顶部总导航 ===== */
+.topnav{position:fixed;top:0;left:0;right:0;height:64px;z-index:70;display:flex;align-items:center;gap:1.5rem;padding:0 34px;
+  background:rgba(244,238,221,.94);backdrop-filter:blur(10px);border-bottom:3px double var(--line);}
+.brand{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--pine);letter-spacing:.02em;line-height:1;}
+.brand .brand-cn{font-family:'Noto Serif SC',serif;font-size:.72rem;letter-spacing:.24em;color:var(--ink-soft);font-weight:500;margin-top:.28rem;}
+.nav-links{margin-left:auto;display:flex;gap:.2rem;}
+.nav-links button{padding:.5rem .95rem;font-size:.92rem;color:var(--ink-soft);border-radius:4px;cursor:pointer;border:0;background:none;font-family:inherit;transition:all .25s;}
+.nav-links button .cn{margin-left:.35rem;font-size:.85rem;}
+.nav-links button:hover{color:var(--pine);background:rgba(49,71,58,.07);}
+.nav-links button.on{color:#fff;background:var(--pine);}
+.nav-toggle{display:none;margin-left:auto;width:42px;height:42px;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer;
+  align-items:center;justify-content:center;}
+.nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:"";display:block;width:20px;height:2px;background:var(--pine);position:relative;transition:.3s;}
+.nav-toggle span::before{position:absolute;top:-6px;} .nav-toggle span::after{position:absolute;top:6px;}
+
+/* ===== Deck & Slides（确定性显示切换） ===== */
+.deck{position:fixed;inset:0;z-index:1;}
+.slide{display:none;position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;-webkit-overflow-scrolling:touch;padding:92px 0 72px;}
+.slide.active{display:flex;flex-direction:column;align-items:center;animation:pageIn .55s ease both;}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+.slide-inner{width:min(1120px,94%);margin:auto;padding:40px 62px 44px;position:relative;z-index:2;
+  background:linear-gradient(180deg,#fffdf6,#f9f3e5);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow), inset 0 0 0 4px #f6efdd, inset 0 0 0 5px var(--line-soft);}
+.slide--tint{background:transparent;}
+/* 封面与结尾：去除书页卡片，全屏铺陈 */
+.slide:first-child .slide-inner,.slide:last-child .slide-inner{
+  background:none;border:0;box-shadow:inset 0 0 0 0 transparent;width:min(1240px,94%);
+  margin:auto;padding:24px 0;}
+
+/* 大图横幅 */
+.media-band{width:100%;height:clamp(150px,20vh,220px);overflow:hidden;border-radius:6px;margin:1.4rem 0;
+  border:1px solid var(--line);box-shadow:var(--shadow);}
+.media-band img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .6s;}
+.media-band:hover img{transform:scale(1.04);}
+
+/* ===== 标题 ===== */
+.kicker{font-family:'Cormorant Garamond',Georgia,serif;font-size:.92rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--wine);font-weight:600;display:flex;align-items:center;gap:.9rem;margin-bottom:1rem;}
+.kicker::after{content:"";height:1px;width:58px;background:currentColor;opacity:.55;}
+.slide-title{font-size:clamp(1.8rem,3.2vw,2.7rem);font-weight:700;line-height:1.2;color:var(--ink);}
+.title-en{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(1.15rem,1.9vw,1.5rem);color:var(--wine);margin-top:.42rem;}
+.slide-sub{margin-top:1.1rem;max-width:68ch;}
+.bi-en{font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:1.06rem;line-height:1.72;}
+.bi-cn{font-size:.92rem;line-height:1.7;color:var(--ink-soft);margin-top:.18rem;}
+
+/* ===== 布局 ===== */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.8rem,4vw,3.4rem);align-items:center;margin-top:1.4rem;}
+.photo-frame{background:var(--surface);padding:13px 13px 42px;border:1px solid var(--line);box-shadow:var(--shadow);position:relative;}
+.photo-frame img{width:100%;display:block;object-fit:cover;cursor:zoom-in;}
+.photo-frame figcaption{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:.94rem;color:var(--ink-soft);}
+.old-photo{filter:sepia(.28) contrast(1.03);}
+
+/* 事实表 */
+.fact-list{margin-top:1.5rem;border-top:1px solid var(--line);}
+.fact-row{display:grid;grid-template-columns:150px 1fr;gap:1rem;padding:.82rem 0;border-bottom:1px solid var(--line);align-items:baseline;}
+.fact-row dt{font-size:.85rem;color:var(--wine);font-weight:600;line-height:1.45;}
+.fact-row dt .dt-cn{display:block;font-family:'Noto Serif SC',serif;font-size:.8rem;color:var(--ink-soft);font-weight:500;}
+.fact-row dd{font-size:.98rem;line-height:1.66;}
+.fact-row dd .bi-cn{font-size:.86rem;}
+
+/* 卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:1.4rem;}
+.card{border:1px solid var(--line);background:var(--surface);border-radius:5px;padding:1.5rem 1.5rem 1.6rem;
+  box-shadow:0 10px 24px -18px rgba(58,45,24,.5);}
+.card .card-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;color:var(--gold-num);font-weight:600;display:block;margin-bottom:.5rem;}
+.card h3{font-size:1.04rem;font-weight:700;line-height:1.35;margin-bottom:.65rem;}
+.card h3 .en{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.28rem;font-weight:600;color:var(--wine);}
+.card h3 .cn{display:block;font-size:.94rem;font-weight:600;margin-top:.08rem;}
+.card .bi-en{font-size:1rem;} .card .bi-cn{font-size:.86rem;}
+
+/* 目录 */
+.toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem 2.4rem;margin-top:1.7rem;}
+.toc-item{display:flex;align-items:baseline;gap:1rem;background:none;border:0;cursor:pointer;width:100%;text-align:left;
+  padding:.84rem .3rem;border-bottom:1px solid var(--line);font-family:inherit;color:var(--ink);transition:color .25s;}
+.toc-item:hover{color:var(--wine);}
+.toc-item:hover .toc-no{color:var(--wine);}
+.toc-item .toc-no{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.3rem;color:var(--gold-num);font-weight:600;min-width:2.1rem;transition:color .25s;}
+.toc-item .toc-en{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.18rem;font-weight:600;}
+.toc-item .toc-cn{font-size:.9rem;color:var(--ink-soft);margin-left:.5rem;}
+
+/* 书封 */
+.book-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:1.4rem;}
+.book .book-cover{aspect-ratio:2/3;overflow:hidden;border:1px solid var(--line);background:var(--surface-2);border-radius:4px;box-shadow:var(--shadow);}
+.book .book-cover img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .5s;}
+.book:hover .book-cover img{transform:scale(1.05);}
+.book .book-meta{margin-top:.85rem;}
+.book .book-year{font-family:'Cormorant Garamond',Georgia,serif;color:var(--wine);font-weight:600;letter-spacing:.08em;}
+.book h3{margin:.12rem 0 .35rem;line-height:1.3;}
+.book h3 .en{font-size:1.18rem;display:block;font-style:italic;} .book h3 .cn{font-size:.88rem;display:block;}
+.book .bi-en{font-size:.9rem;line-height:1.55;} .book .bi-cn{font-size:.82rem;line-height:1.5;}
+
+/* 画廊（多图） */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.05rem;margin-top:1.7rem;}
+.gallery figure{border-radius:4px;overflow:hidden;box-shadow:var(--shadow);background:var(--surface);border:1px solid var(--line);}
+.gallery img{width:100%;height:200px;object-fit:cover;object-position:center 25%;display:block;cursor:zoom-in;transition:transform .5s;}
+.gallery figure:hover img{transform:scale(1.06);}
+.gallery figcaption{padding:.55rem .8rem;font-size:.82rem;color:var(--ink-soft);line-height:1.4;}
+.gallery figcaption .en{font-style:italic;}
+
+/* 两列工具类（替代内联 grid-template-columns，确保 ≤560px 可降级） */
+.cols-2{grid-template-columns:repeat(2,1fr);}
+.book-grid.cols-2{margin-top:1.4rem;}
+.book-grid.cols-2 .book-cover{aspect-ratio:auto;height:300px;}
+
+/* 时间轴 */
+.timeline{display:grid;grid-template-columns:92px 26px 1fr;margin-top:1.6rem;}
+.tl-year{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.18rem;font-weight:600;color:var(--wine);text-align:right;padding-right:1rem;}
+.tl-rail{position:relative;}
+.tl-rail::before{content:"";position:absolute;top:5px;bottom:5px;left:50%;width:2px;transform:translateX(-50%);background:var(--gold);opacity:.6;}
+.tl-dot{position:absolute;top:5px;left:50%;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--wine);transform:translateX(-50%);}
+.tl-body{padding:0 0 .9rem 1.1rem;}
+.tl-body h3{font-size:.98rem;line-height:1.3;margin-bottom:.2rem;}
+.tl-body h3 .en{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.22rem;font-weight:600;color:var(--wine);font-style:italic;}
+.tl-body .bi-en{font-size:.92rem;line-height:1.55;} .tl-body .bi-cn{font-size:.84rem;line-height:1.5;}
+
+/* 引文 */
+.quote{margin-top:1.7rem;border-left:3px solid var(--gold);padding:.3rem 0 .3rem 1.5rem;}
+.quote blockquote{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(1.2rem,2.1vw,1.66rem);line-height:1.5;font-weight:500;color:var(--ink);}
+.quote .quote-cn{margin-top:.66rem;font-size:.94rem;line-height:1.78;color:var(--ink-soft);}
+
+/* 精讲块 */
+.lecture-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.4rem;}
+.lecture-block{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:1.5rem 1.6rem;box-shadow:0 10px 24px -18px rgba(58,45,24,.5);}
+.lecture-block h3{font-size:1.04rem;font-weight:700;line-height:1.35;margin-bottom:.8rem;}
+.lecture-block h3 .en{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.26rem;font-weight:600;color:var(--wine);}
+.lecture-block h3 .cn{display:block;font-size:.92rem;font-weight:600;margin-top:.08rem;}
+.lecture-block p{font-size:.96rem;line-height:1.82;margin-bottom:.7rem;}
+.lecture-block p .bi-cn{font-size:.88rem;}
+.lecture-block ul{list-style:none;}
+.lecture-block li{font-size:.92rem;line-height:1.7;padding-left:1.15rem;position:relative;margin-bottom:.4rem;}
+.lecture-block li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;background:var(--gold);border-radius:50%;}
+.lecture-block li .bi-cn{font-size:.86rem;}
+.speech-meta{display:grid;grid-template-columns:82px 1fr;gap:.45rem 1rem;font-size:.92rem;line-height:1.55;}
+.speech-meta dt{color:var(--wine);font-weight:600;font-size:.84rem;}
+.speech-meta dd{font-family:'EB Garamond',Georgia,serif;}
+
+/* 大数字 */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;margin-top:2.1rem;}
+.stat{border-top:2px solid var(--gold);padding-top:1rem;}
+.stat .stat-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.2rem,3.6vw,3rem);font-weight:600;line-height:1;color:var(--wine);}
+.stat .stat-label{margin-top:.5rem;font-size:.88rem;line-height:1.55;color:var(--ink-soft);}
+
+/* ===== 封面 ===== */
+.cover{display:grid;grid-template-columns:1.05fr .95fr;height:100%;align-items:center;gap:2.8rem;}
+.cover .cover-kicker{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-size:.92rem;margin-bottom:1.5rem;}
+.cover h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:600;line-height:1;}
+.cover .cover-cn{font-size:clamp(1.4rem,2.6vw,2.1rem);font-weight:700;margin-top:.7rem;letter-spacing:.28em;}
+.cover .cover-roles{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.24rem;color:var(--pine-soft);margin-top:1.2rem;}
+.cover .cover-roles-cn{font-size:.92rem;color:var(--ink-soft);margin-top:.28rem;letter-spacing:.14em;}
+.cover .cover-line{width:54px;height:2px;background:var(--gold);margin:1.5rem 0;}
+.cover .cover-note{font-family:'EB Garamond',Georgia,serif;font-size:1.08rem;line-height:1.72;color:var(--ink);max-width:42ch;}
+.cover .cover-note-cn{font-size:.9rem;color:var(--ink-soft);margin-top:.32rem;}
+.cover .cover-speaker{margin-top:1.9rem;font-size:1rem;}
+.cover .cover-speaker .lbl{color:var(--ink-soft);font-size:.85rem;letter-spacing:.16em;}
+.cover .cover-speaker .nm{font-size:1.38rem;font-weight:700;color:var(--wine);margin-left:.5rem;letter-spacing:.12em;}
+.cover-photo{height:80vh;overflow:hidden;border-radius:6px;border:1px solid var(--line);
+  box-shadow:var(--shadow), inset 0 0 0 6px #f6efdd, inset 0 0 0 7px var(--line-soft);}
+.cover-photo img{width:100%;height:100%;object-fit:cover;object-position:center 16%;filter:sepia(.24);cursor:zoom-in;}
+
+/* ===== 底部 UI ===== */
+.progress{position:fixed;top:64px;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-soft));z-index:69;transition:width .5s;}
+.pageno{position:fixed;right:40px;bottom:34px;z-index:60;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.08rem;color:var(--pine);letter-spacing:.12em;}
+.keyhint{position:fixed;left:40px;bottom:36px;z-index:60;font-size:.8rem;letter-spacing:.08em;color:var(--ink-soft);}
+
+/* 灯箱 */
+.lightbox{position:fixed;inset:0;background:rgba(30,26,18,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:6vh 6vw;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:100%;max-height:88%;object-fit:contain;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.6);}
+.lightbox .lb-caption{position:absolute;bottom:3.2vh;left:0;right:0;text-align:center;color:rgba(244,238,221,.82);font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.12rem;}
+.lightbox .lb-close{position:absolute;top:24px;right:32px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(244,238,221,.4);background:transparent;color:#fff;font-size:1.5rem;cursor:pointer;line-height:1;}
+
+/* 结尾 */
+.end-wrap{min-height:72vh;display:flex;flex-direction:column;justify-content:center;}
+.end-quote{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.46;max-width:22ch;font-weight:500;color:var(--ink);}
+.end-cn{margin-top:1.2rem;font-size:1.02rem;line-height:1.86;color:var(--ink-soft);max-width:54ch;}
+.end-speaker{margin-top:2.5rem;font-size:1rem;color:var(--ink-soft);}
+.end-speaker b{color:var(--wine);font-size:1.22rem;letter-spacing:.12em;margin-left:.4rem;}
+.end-thanks{margin-top:1.7rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.32rem;letter-spacing:.3em;color:var(--gold);}
+.end-discuss{margin-top:2rem;padding:1rem 1.4rem;border:1px solid var(--line);border-radius:6px;background:rgba(255,253,245,.65);}
+.end-discuss .en{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.16rem;color:var(--wine);font-weight:600;line-height:1.5;}
+.end-discuss .cn{font-size:.9rem;color:var(--ink-soft);margin-top:.32rem;line-height:1.6;}
+
+/* ===== 响应式 ===== */
+@media (max-width:1023px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fbf6ea;border-bottom:1px solid var(--line);padding:.6rem 1rem;}
+  .topnav.menu-open .nav-links{display:flex;}
+  .nav-links button{padding:.85rem .6rem;border-radius:0;border-bottom:1px solid var(--line);text-align:left;font-size:15px;}
+  .nav-links button .cn{font-size:14px;}
+  .nav-toggle{display:flex;}
+  .slide{padding:78px 0 50px;}
+  .slide-inner{width:94%;margin:auto;padding:34px 22px 38px;}
+  .slide:first-child .slide-inner,.slide:last-child .slide-inner{padding:20px 0;}
+  .card-grid,.lecture-grid{grid-template-columns:1fr;}
+  .book-grid{grid-template-columns:repeat(2,1fr);}
+  .stat-grid{grid-template-columns:repeat(2,1fr);}
+  .split{grid-template-columns:1fr;}
+  .toc-grid{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:1fr 1fr;}
+  .cover{grid-template-columns:1fr;height:auto;padding:0;}
+  .cover-photo{height:42vh;order:-1;}
+  .timeline{grid-template-columns:74px 22px 1fr;}
+  .keyhint{display:none;}
+  .pageno{right:18px;bottom:15px;left:auto;transform:none;font-size:.92rem;}
+}
+@media (max-width:560px){
+  .fact-row{grid-template-columns:1fr;gap:.2rem;}
+  .gallery{grid-template-columns:1fr;}
+  .book-grid,.cols-2{grid-template-columns:1fr;}
+}
+@media (prefers-reduced-motion:reduce){
+  .slide.active{animation:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav" id="topnav">
+  <div class="brand">Virginia Woolf<div class="brand-cn">弗吉尼亚·伍尔夫</div></div>
+  <div class="nav-links" id="navLinks">
+    <button data-nav="0">Home<span class="cn">首页</span></button>
+    <button data-nav="3">Life<span class="cn">生平</span></button>
+    <button data-nav="10">Works<span class="cn">作品</span></button>
+    <button data-nav="14">Speech<span class="cn">演讲精讲</span></button>
+    <button data-nav="20">Legacy<span class="cn">影响</span></button>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-expanded="false"><span></span></button>
+</nav>
+
+<div class="progress" id="progress"></div>
+<main class="deck" id="deck">
+
+<!-- ===== 1. Cover 封面 ===== -->
+<section class="slide slide--tint active">
+  <div class="slide-inner">
+    <div class="cover">
+      <div>
+        <div class="cover-kicker">A Literary Presentation</div>
+        <h1>Virginia<br>Woolf</h1>
+        <div class="cover-cn">弗吉尼亚·伍尔夫</div>
+        <div class="cover-roles">Novelist · Essayist · Feminist Icon · 1882–1941</div>
+        <div class="cover-roles-cn">小说家 · 散文家 · 女性主义先驱</div>
+        <div class="cover-line"></div>
+        <p class="cover-note en">A guided journey through her life, her works and her celebrated speech “Professions for Women.”</p>
+        <p class="cover-note-cn">走进她的人生、作品，以及那篇著名演讲《Professions for Women》。</p>
+        <div class="cover-speaker">
+          <span class="lbl">演讲人</span><span class="nm">王佳琦</span>
+        </div>
+      </div>
+      <div class="cover-photo">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/R2CVbWP15oeF0xxNuMTcChtlnPg" alt="Virginia Woolf 1927" data-lightbox>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. Contents 目录 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Contents</div>
+    <h2 class="slide-title">目录</h2>
+    <span class="title-en">A Guided Tour</span>
+    <div class="toc-grid">
+      <button class="toc-item" data-goto="3"><span class="toc-no">01</span><span class="toc-en">At a Glance</span><span class="toc-cn">人物速览</span></button>
+      <button class="toc-item" data-goto="4"><span class="toc-no">02</span><span class="toc-en">The Age</span><span class="toc-cn">时代背景</span></button>
+      <button class="toc-item" data-goto="5"><span class="toc-no">03</span><span class="toc-en">Family &amp; Origins</span><span class="toc-cn">家庭出身</span></button>
+      <button class="toc-item" data-goto="6"><span class="toc-no">04</span><span class="toc-en">Early Years</span><span class="toc-cn">早年经历</span></button>
+      <button class="toc-item" data-goto="7"><span class="toc-no">05</span><span class="toc-en">Bloomsbury Group</span><span class="toc-cn">布鲁姆斯伯里派</span></button>
+      <button class="toc-item" data-goto="8"><span class="toc-no">06</span><span class="toc-en">Marriage &amp; Hogarth Press</span><span class="toc-cn">婚姻与出版社</span></button>
+      <button class="toc-item" data-goto="10"><span class="toc-no">07</span><span class="toc-en">Final Years</span><span class="toc-cn">辞世</span></button>
+      <button class="toc-item" data-goto="11"><span class="toc-no">08</span><span class="toc-en">Chronology</span><span class="toc-cn">创作年表</span></button>
+      <button class="toc-item" data-goto="12"><span class="toc-no">09</span><span class="toc-en">Major Novels</span><span class="toc-cn">小说代表作</span></button>
+      <button class="toc-item" data-goto="14"><span class="toc-no">10</span><span class="toc-en">A Room of One's Own</span><span class="toc-cn">一间自己的房间</span></button>
+      <button class="toc-item" data-goto="15"><span class="toc-no">11</span><span class="toc-en">Professions for Women</span><span class="toc-cn">演讲精讲</span></button>
+      <button class="toc-item" data-goto="21"><span class="toc-no">12</span><span class="toc-en">Legacy</span><span class="toc-cn">文学地位与影响</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. At a Glance 人物速览 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">At a Glance</div>
+    <h2 class="slide-title">人物速览</h2>
+    <span class="title-en">Quick Facts</span>
+    <div class="split">
+      <figure class="photo-frame">
+        <img loading="lazy" class="old-photo" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/K59Db2aojoP3anxfa0XcWe1onEr" alt="Virginia Woolf seated" data-lightbox>
+        <figcaption>Virginia Woolf, c. 1920s</figcaption>
+      </figure>
+      <dl class="fact-list">
+        <div class="fact-row"><dt>Full Name<span class="dt-cn">全名</span></dt><dd class="en">Adeline Virginia Stephen (later Woolf)<div class="bi-cn">本名 Adeline Virginia Stephen，1912年婚后改姓 Woolf</div></dd></div>
+        <div class="fact-row"><dt>Born<span class="dt-cn">出生</span></dt><dd class="en">25 January 1882, London<div class="bi-cn">1882年1月25日，伦敦</div></dd></div>
+        <div class="fact-row"><dt>Died<span class="dt-cn">逝世</span></dt><dd class="en">28 March 1941 (aged 59)<div class="bi-cn">1941年3月28日，享年59岁</div></dd></div>
+        <div class="fact-row"><dt>Occupation<span class="dt-cn">身份</span></dt><dd class="en">Novelist · Essayist · Critic · Publisher<div class="bi-cn">小说家 · 散文家 · 评论家 · 出版人</div></dd></div>
+        <div class="fact-row"><dt>Movement<span class="dt-cn">流派</span></dt><dd class="en">Modernism · Stream of Consciousness<div class="bi-cn">现代主义 · 意识流</div></dd></div>
+        <div class="fact-row"><dt>Circle<span class="dt-cn">团体</span></dt><dd class="en">Bloomsbury Group<div class="bi-cn">布鲁姆斯伯里派</div></dd></div>
+        <div class="fact-row"><dt>Notable Works<span class="dt-cn">代表作</span></dt><dd class="en"><i>Mrs Dalloway</i> · <i>To the Lighthouse</i> · <i>Orlando</i> · <i>The Waves</i><div class="bi-cn">《达洛维夫人》《到灯塔去》《奥兰多》《海浪》</div></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. The Age 时代背景 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">The Age She Lived In</div>
+    <h2 class="slide-title">她所处的时代：女性的“无形围墙”</h2>
+    <span class="title-en">Women's Invisible Walls</span>
+    <div class="media-band">
+      <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/EdrYbloT1oFWWOxJYmVcDIGUnXe" alt="Edwardian London" data-lightbox>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-num">i.</span>
+        <h3><span class="en">No Right to Vote</span><span class="cn">没有投票权</span></h3>
+        <p class="bi-en">Women over 30 only gained the vote in 1918; equal suffrage came in 1928.</p>
+        <p class="bi-cn">30岁以上女性1918年才获选举权，平等选举权1928年才实现。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">ii.</span>
+        <h3><span class="en">Closed Professions</span><span class="cn">职业大门紧闭</span></h3>
+        <p class="bi-en">Law, medicine, the church and the academy were largely closed to women.</p>
+        <p class="bi-cn">法律、医学、教会与学术界几乎不接纳女性。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">iii.</span>
+        <h3><span class="en">The Angel Ideal</span><span class="cn">“家庭天使”理想</span></h3>
+        <p class="bi-en">Women were to be gentle and selfless; writing seemed “unwomanly.”</p>
+        <p class="bi-cn">社会期待女性温顺无私，写作被视为“不像女人”。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. Family 家庭出身 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Family &amp; Origins</div>
+    <h2 class="slide-title">书香门第</h2>
+    <span class="title-en">A Family of Letters</span>
+    <div class="split">
+      <dl class="fact-list">
+        <div class="fact-row"><dt>Father<span class="dt-cn">父亲</span></dt>
+          <dd class="bi-en">Sir Leslie Stephen — scholar, critic, first editor of the Dictionary of National Biography</dd>
+          <dd class="bi-cn">莱斯利·斯蒂芬爵士：学者、评论家，《国家人物传记大辞典》首任主编</dd></div>
+        <div class="fact-row"><dt>Mother<span class="dt-cn">母亲</span></dt>
+          <dd class="bi-en">Julia Stephen — of a distinguished family; a model for Pre-Raphaelite painters</dd>
+          <dd class="bi-cn">朱莉娅·斯蒂芬：出身名门，曾为拉斐尔前派画家担任模特</dd></div>
+        <div class="fact-row"><dt>Siblings<span class="dt-cn">手足</span></dt>
+          <dd class="bi-en">Eight children in the blended family; her sister Vanessa Bell became a painter</dd>
+          <dd class="bi-cn">重组家庭共八个孩子；姐姐 Vanessa Bell 后来成为画家</dd></div>
+        <div class="fact-row"><dt>Vanessa Bell<span class="dt-cn">姐姐凡妮莎</span></dt>
+          <dd class="bi-en">She designed the dust jackets for nearly all of Woolf's books</dd>
+          <dd class="bi-cn">她为伍尔夫设计了几乎全部作品的书封</dd></div>
+      </dl>
+      <figure class="photo-frame">
+        <img loading="lazy" class="old-photo" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Nf4TbVaukocnksxpUDHcENhlnte" alt="22 Hyde Park Gate" data-lightbox>
+        <figcaption>22 Hyde Park Gate — lived here until 1904</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. Early Years 早年经历 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Early Years</div>
+    <h2 class="slide-title">创伤、丧亲与自学</h2>
+    <span class="title-en">Trauma, Loss and Self-Education</span>
+    <div class="media-band">
+      <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NPQzblL5NoDBJvxPPxtc0OOpnof" alt="A woman writing" data-lightbox>
+    </div>
+    <div class="card-grid cols-2">
+      <div class="card">
+        <span class="card-num">i.</span>
+        <h3><span class="en">No Schooling</span><span class="cn">无缘学校，以书为师</span></h3>
+        <p class="bi-en">Only the brothers were sent away to school and to Cambridge; she was taught at home and read freely.</p>
+        <p class="bi-cn">家里只有男孩被送去上学、进剑桥；她在家受教，在父亲书房自由阅读。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">ii.</span>
+        <h3><span class="en">Childhood Shadows</span><span class="cn">童年的阴影</span></h3>
+        <p class="bi-en">She and Vanessa were abused by their half-brothers, leaving lifelong wounds.</p>
+        <p class="bi-cn">她和姐姐曾遭同母异父兄长侵犯，留下终生创伤。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">iii.</span>
+        <h3><span class="en">Repeated Bereavement</span><span class="cn">接连失去亲人</span></h3>
+        <p class="bi-en">Her mother died in 1895, her half-sister Stella in 1897, her father in 1904, and her beloved brother Thoby of typhoid in 1906, aged 26.</p>
+        <p class="bi-cn">母亲1895年、同母异父姐姐斯特拉1897年、父亲1904年相继去世；1906年，挚爱的兄长索比又因伤寒病逝，年仅26岁。</p>
+      </div>
+      <div class="card">
+        <span class="card-num">iv.</span>
+        <h3><span class="en">A Move to Bloomsbury</span><span class="cn">迁居布鲁姆斯伯里</span></h3>
+        <p class="bi-en">In 1904 the siblings moved to Bloomsbury and began an independent life.</p>
+        <p class="bi-cn">1904年迁居布鲁姆斯伯里，开始独立自由的新生活。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. Bloomsbury Group 布鲁姆斯伯里派 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">The Bloomsbury Group</div>
+    <h2 class="slide-title">布鲁姆斯伯里派：时代的思想客厅</h2>
+    <span class="title-en">An Intellectual Circle of the Age</span>
+    <div class="split">
+      <figure class="photo-frame">
+        <img loading="lazy" class="old-photo" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Ma2vbqr4yoGuUpxIXVjc6f01nJh" alt="Bloomsbury gathering 1926" data-lightbox>
+        <figcaption>A garden gathering, 1926</figcaption>
+      </figure>
+      <dl class="fact-list">
+        <div class="fact-row"><dt>Members<span class="dt-cn">成员</span></dt>
+          <dd class="bi-en">Strachey · Fry · Clive Bell · Keynes · E. M. Forster · Vanessa Bell</dd>
+          <dd class="bi-cn">斯特雷奇、弗莱、克莱夫·贝尔、凯恩斯、福斯特、凡妮莎·贝尔</dd></div>
+        <div class="fact-row"><dt>Beliefs<span class="dt-cn">主张</span></dt>
+          <dd class="bi-en">Rejecting Victorian hypocrisy; valuing truth, reason, art and beauty</dd>
+          <dd class="bi-cn">摒弃维多利亚式虚伪，崇尚真实、理性、艺术与美</dd></div>
+        <div class="fact-row"><dt>Role<span class="dt-cn">地位</span></dt>
+          <dd class="bi-en">Woolf was its literary centre; it shaped British culture for decades</dd>
+          <dd class="bi-cn">伍尔夫是团体的文学核心，团体塑造了英国数十年文化面貌</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. Marriage 婚姻 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Marriage</div>
+    <h2 class="slide-title">婚姻：一生的守护者</h2>
+    <span class="title-en">Leonard Woolf</span>
+    <div class="split">
+      <dl class="fact-list">
+        <div class="fact-row"><dt>Wedding<span class="dt-cn">结合</span></dt>
+          <dd class="bi-en">She married the writer and political theorist Leonard Woolf in 1912</dd>
+          <dd class="bi-cn">1912年与作家、政治理论家伦纳德·伍尔夫结婚</dd></div>
+        <div class="fact-row"><dt>Devotion<span class="dt-cn">陪伴</span></dt>
+          <dd class="bi-en">He cared for her patiently through every breakdown</dd>
+          <dd class="bi-cn">在她每次发病时，他都耐心照料、不离不弃</dd></div>
+        <div class="fact-row"><dt>Partnership<span class="dt-cn">同行</span></dt>
+          <dd class="bi-en">They built a life of writing, publishing and shared ideals together</dd>
+          <dd class="bi-cn">两人共同经营写作、出版与理想，彼此成就</dd></div>
+      </dl>
+      <figure class="photo-frame">
+        <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/AGpTbsBNooBNi0xEQdJc3QtHnYc" alt="Virginia and Leonard 1939" data-lightbox>
+        <figcaption>Virginia &amp; Leonard Woolf, 1939</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. Hogarth Press 出版社 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">The Hogarth Press</div>
+    <h2 class="slide-title">霍加斯出版社：自己的印刷机</h2>
+    <span class="title-en">Her Own Printing Press</span>
+    <div class="split">
+      <dl class="fact-list">
+        <div class="fact-row"><dt>Founded<span class="dt-cn">创办</span></dt>
+          <dd class="bi-en">In 1917, at Hogarth House, they set type and printed by hand</dd>
+          <dd class="bi-cn">1917年在霍加斯宅邸起步，亲手排版、印刷</dd></div>
+        <div class="fact-row"><dt>Published<span class="dt-cn">出品</span></dt>
+          <dd class="bi-en">Her novels, T. S. Eliot's <i>The Waste Land</i>, Mansfield, and the first complete Freud</dd>
+          <dd class="bi-cn">她的小说、艾略特《The Waste Land》、曼斯菲尔德及弗洛伊德全译本</dd></div>
+        <div class="fact-row"><dt>Significance<span class="dt-cn">意义</span></dt>
+          <dd class="bi-en">Free from commercial publishers, she could experiment boldly with form</dd>
+          <dd class="bi-cn">不必迎合商业出版商，她得以自由大胆地实验文体</dd></div>
+      </dl>
+      <figure class="photo-frame">
+        <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/I09xb2odZoF4TTxD7kWcOg4snY7" alt="Hogarth House plaque" data-lightbox>
+        <figcaption>Hogarth House — founded the Press in 1917</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. Final Years 辞世 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Final Years</div>
+    <h2 class="slide-title">在疯狂与创作之间</h2>
+    <span class="title-en">Between Madness and Art</span>
+    <div class="split">
+      <div>
+        <dl class="fact-list">
+          <div class="fact-row"><dt>Lifelong Illness<span class="dt-cn">终生病痛</span></dt>
+            <dd class="bi-en">Severe recurring depression and mania, with voices and insomnia, yet her art reached its height in the intervals.</dd>
+            <dd class="bi-cn">反复陷入抑郁与躁狂，伴随幻听与失眠，创作却在间歇中达至高峰</dd></div>
+          <div class="fact-row"><dt>The End<span class="dt-cn">最后时刻</span></dt>
+            <dd class="bi-en">In 1941, amid war and bombing, she drowned in the River Ouse on 28 March, with stones in her pockets.</dd>
+            <dd class="bi-cn">1941年战火与轰炸中，3月28日她在乌斯河投河，衣袋装满石头</dd></div>
+        </dl>
+        <div class="quote">
+          <blockquote>“I don't think two people could have been happier than we have been.”</blockquote>
+          <div class="quote-cn">“我相信，世上再没有谁，比我们俩曾经更幸福了。”——致伦纳德的遗书</div>
+        </div>
+      </div>
+      <figure class="photo-frame">
+        <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/O47vbhZZgoomf1xkvvxcvGk7nEb" alt="Monk's House" data-lightbox>
+        <figcaption>Monk&rsquo;s House, Rodmell</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. Chronology 创作年表 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Chronology</div>
+    <h2 class="slide-title">创作年表：一条向内心掘进的路</h2>
+    <span class="title-en">A Road Turning Inward</span>
+    <div class="timeline">
+      <div class="tl-year">1915</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><h3><span class="en">The Voyage Out</span>　远航</h3><p class="bi-en">Her first novel, long in the making.</p><p class="bi-cn">第一部长篇，历经多年完成。</p></div>
+      <div class="tl-year">1922</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><h3><span class="en">Jacob's Room</span>　雅各的房间</h3><p class="bi-en">Her first stream-of-consciousness experiment.</p><p class="bi-cn">意识流实验的开端。</p></div>
+      <div class="tl-year">1925</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><h3><span class="en">Mrs Dalloway</span>　达洛维夫人</h3><p class="bi-en">A single day in post-war London.</p><p class="bi-cn">战后伦敦的一天。</p></div>
+      <div class="tl-year">1927</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><h3><span class="en">To the Lighthouse</span>　到灯塔去</h3><p class="bi-en">Family, loss and memory across ten years.</p><p class="bi-cn">十年间的家庭、生死与记忆。</p></div>
+      <div class="tl-year">1928</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><h3><span class="en">Orlando</span>　奥兰多</h3><p class="bi-en">A more-than-three-century, sex-changing fantasy for Vita.</p><p class="bi-cn">跨越三百余年、由男变女，献给 Vita。</p></div>
+      <div class="tl-year">1929</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><h3><span class="en">A Room of One's Own</span>　一间自己的房间</h3><p class="bi-en">The landmark essay of feminist criticism.</p><p class="bi-cn">女性主义文论的里程碑。</p></div>
+      <div class="tl-year">1931</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><h3><span class="en">The Waves</span>　海浪</h3><p class="bi-en">Six voices woven like music.</p><p class="bi-cn">六个声音如乐章交织。</p></div>
+      <div class="tl-year">1937</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><h3><span class="en">The Years</span>　岁月</h3><p class="bi-en">A family saga across the decades.</p><p class="bi-cn">跨越数十年的家族史诗。</p></div>
+      <div class="tl-year">1938</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body"><h3><span class="en">Three Guineas</span>　三个基尼</h3><p class="bi-en">An extended answer to the questions behind the speech.</p><p class="bi-cn">对演讲所涉问题的延伸作答。</p></div>
+      <div class="tl-year">1941</div><div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-body" style="padding-bottom:0;"><h3><span class="en">Between the Acts</span>　幕间</h3><p class="bi-en">Her final novel, published posthumously.</p><p class="bi-cn">最后一部小说，身后出版。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 12. Major Novels I 小说代表作（一） ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Major Novels · I</div>
+    <h2 class="slide-title">小说代表作（一）：内心的光</h2>
+    <span class="title-en">Mrs Dalloway &amp; To the Lighthouse</span>
+    <div class="media-band">
+      <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NLcZbA6o8of1tyxbxv4cOsVgnMb" alt="Lighthouse at dusk" data-lightbox>
+    </div>
+    <div class="book-grid cols-2">
+      <div class="book">
+        <div class="book-cover"><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/IoMKbymwIooPjdxZKYNcgbr1nXb" alt="Mrs Dalloway" data-lightbox></div>
+        <div class="book-meta"><div class="book-year">1925</div><h3><span class="en">Mrs Dalloway</span><span class="cn">达洛维夫人</span></h3>
+          <p class="bi-en">One June day in London, Clarissa prepares a party; her thoughts drift across youth, love and the shadow of war, weaving many lives together.</p>
+          <p class="bi-cn">伦敦夏日的一天，克拉丽莎筹办晚宴，思绪穿梭于青春、爱情与战争阴影，织起一整个时代的众生相。</p></div>
+      </div>
+      <div class="book">
+        <div class="book-cover"><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/CeHZbwrTNormZ0xuFJBc24U9nJb" alt="To the Lighthouse" data-lightbox></div>
+        <div class="book-meta"><div class="book-year">1927</div><h3><span class="en">To the Lighthouse</span><span class="cn">到灯塔去</span></h3>
+          <p class="bi-en">The Ramsays' two island holidays frame ten years of loss, memory and reconciliation.</p>
+          <p class="bi-cn">拉姆齐一家两度海岛度假，框住十年间的生死、记忆与和解。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 13. Major Novels II 小说代表作（二） ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Major Novels · II</div>
+    <h2 class="slide-title">小说代表作（二）：跨越时间与性别</h2>
+    <span class="title-en">Orlando &amp; The Waves</span>
+    <div class="split" style="margin-top:1.6rem;">
+      <figure class="photo-frame">
+        <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/UxHIbxWRwoQyJExv1e2cS7pKncb" alt="Vita Sackville-West" data-lightbox>
+        <figcaption>Vita Sackville-West</figcaption>
+      </figure>
+      <div>
+        <p class="bi-en"><i>Orlando</i> (1928) was inspired by Woolf's friend and lover Vita Sackville-West; its hero lives more than three centuries and changes from man to woman.</p>
+        <p class="bi-cn">《奥兰多》以挚友兼爱人 Vita Sackville-West 为灵感，主人公活了三百余年、由男变女。</p>
+        <p class="bi-en" style="margin-top:.8rem;"><i>The Waves</i> (1931) follows six friends from childhood to middle age through interlacing soliloquies — her most lyrical, experimental novel.</p>
+        <p class="bi-cn">《海浪》以交织的独白写六位朋友从童年到中年，是她最抒情、最具实验性的作品。</p>
+      </div>
+    </div>
+    <div class="book-grid cols-2">
+      <div class="book">
+        <div class="book-cover"><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LIBVbVGEposPVSxUuxCcnrEDnBh" alt="Orlando" data-lightbox></div>
+        <div class="book-meta"><div class="book-year">1928</div><h3><span class="en">Orlando</span><span class="cn">奥兰多</span></h3></div>
+      </div>
+      <div class="book">
+        <div class="book-cover"><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/RMS0bDWS0o7LNjx3sfJcIhXvnhc" alt="The Waves" data-lightbox></div>
+        <div class="book-meta"><div class="book-year">1931</div><h3><span class="en">The Waves</span><span class="cn">海浪</span></h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 14. A Room of One's Own 一间自己的房间 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">A Room of One's Own</div>
+    <h2 class="slide-title">一间自己的房间：女性创作的宣言</h2>
+    <span class="title-en">A Manifesto for Women's Writing</span>
+    <div class="split">
+      <dl class="fact-list">
+        <div class="fact-row"><dt>Origin<span class="dt-cn">缘起</span></dt>
+          <dd class="bi-en">Based on her 1928 Cambridge lectures, published in 1929</dd>
+          <dd class="bi-cn">源自1928年在剑桥的演讲，1929年成书，女性主义批评奠基之作</dd></div>
+        <div class="fact-row"><dt>Core Argument<span class="dt-cn">核心命题</span></dt>
+          <dd class="bi-en">A woman needs £500 a year and a lockable room — independence and private space</dd>
+          <dd class="bi-cn">女性写作需要每年五百镑和一间能上锁的房间——经济独立与私人空间</dd></div>
+        <div class="fact-row"><dt>Shakespeare's Sister<span class="dt-cn">莎士比亚的妹妹</span></dt>
+          <dd class="bi-en">An equally gifted “Judith” would be denied education and destroyed</dd>
+          <dd class="bi-cn">同样天才的“朱迪思”被剥夺教育而毁灭。</dd></div>
+        <div class="fact-row"><dt>Androgyny<span class="dt-cn">雌雄同体</span></dt>
+          <dd class="bi-en">The greatest minds are “androgynous,” male and female fused</dd>
+          <dd class="bi-cn">伟大的头脑“雌雄同体”，两性特质交融</dd></div>
+      </dl>
+      <figure class="photo-frame">
+        <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/BtD9bC1eIoqsYkxDy8ccXu6hnwf" alt="A Room of One's Own" data-lightbox>
+        <figcaption>A Room of One&rsquo;s Own, 1929</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 15. Speech Guide 演讲导览 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Speech · Guide</div>
+    <h2 class="slide-title">演讲导览</h2>
+    <span class="title-en">Professions for Women</span>
+    <div class="media-band">
+      <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GYtobMteloOFbyxXwMbc7Blin4f" alt="Women gathering" data-lightbox>
+    </div>
+    <div class="lecture-grid">
+      <div class="lecture-block">
+        <h3><span class="en">What It Is</span><span class="cn">作品概述</span></h3>
+        <p class="bi-en">“Professions for Women” is a speech Woolf gave to the National Society for Women's Service on 21 January 1931, later collected in <i>The Death of the Moth</i>.</p>
+        <p class="bi-cn">《Professions for Women》是伍尔夫1931年1月21日在全国妇女服务协会发表的演讲，后收入随笔集《飞蛾之死》。</p>
+      </div>
+      <div class="lecture-block">
+        <h3><span class="en">At a Glance</span><span class="cn">关键信息</span></h3>
+        <dl class="speech-meta">
+          <dt>Date 时间</dt><dd class="en">21 January 1931</dd>
+          <dt>Venue 场合</dt><dd class="en">National Society for Women's Service</dd>
+          <dt>Theme 主题</dt><dd>Women, work and the freedom to write　女性、职业与写作的自由</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="bi-en" style="margin-top:1.3rem;">With wit and candour, she reflects on what it cost a woman to become a professional writer — and looks forward to the rooms yet to be furnished.</p>
+    <p class="bi-cn">她以幽默与坦率，讲述女性成为职业作家所付出的代价，并展望那些尚待布置的“房间”。</p>
+  </div>
+</section>
+
+<!-- ===== 16. Lecture I 精讲一：女性先驱 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Part I</div>
+    <h2 class="slide-title">精讲一：写作这门职业</h2>
+    <span class="title-en">The Pioneers Who Cleared the Road</span>
+    <div class="split">
+      <div>
+        <p class="bi-en">Woolf opens by noting that in literature, fewer “experiences peculiar to women” existed — because the road had been cut long before.</p>
+        <p class="bi-cn">伍尔夫开场便说，在文学这一行，女性特有的经历反而更少——因为道路早被前人开辟出来。</p>
+        <p class="bi-en" style="margin-top:.8rem;">She names Aphra Behn, Fanny Burney, Harriet Martineau, Jane Austen and George Eliot — women who smoothed the path and “regulated my steps.”</p>
+        <p class="bi-cn">她列举 Aphra Behn、Fanny Burney、Harriet Martineau、Jane Austen、George Eliot——这些女性铺平了道路、“规范了我的步伐”。</p>
+        <p class="bi-en" style="margin-top:.8rem;">Writing was cheap, private and “reputable and harmless”; it did not disturb the peace of the family.</p>
+        <p class="bi-cn">写作成本低廉、可在家中私下进行，“体面而无害”，不会惊扰家庭的安宁。</p>
+      </div>
+      <div class="gallery" style="grid-template-columns:1fr;">
+        <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NNkrbkU7Mo4GLZxXgticnl6Snhb" alt="Aphra Behn" data-lightbox><figcaption><span class="en">Aphra Behn</span>　英国最早以写作为生的女性之一</figcaption></figure>
+        <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/QSoobqpxxo1GbuxkM4OcTtgSnvd" alt="Jane Austen" data-lightbox><figcaption><span class="en">Jane Austen</span>　为女性小说开辟道路</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 17. Lecture II 精讲二：杀死天使（重点） ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Part II</div>
+    <h2 class="slide-title">精讲二：杀死“家中的天使”</h2>
+    <span class="title-en">Killing the Angel in the House</span>
+    <div class="split">
+      <figure class="photo-frame">
+        <img loading="lazy" class="old-photo" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/XNaab9keuoAzDWxFoAOc04ElnTg" alt="The ideal Victorian woman" data-lightbox>
+        <figcaption>The ideal woman of the age</figcaption>
+      </figure>
+      <div>
+        <p class="bi-en">Behind her as she wrote stood the “Angel in the House,” from Coventry Patmore's 1854 poem — charming, sympathetic and utterly unselfish; above all, “she never had a mind or a wish of her own.”</p>
+        <p class="bi-cn">写作时，她身后站着“家中的天使”（出自 Coventry Patmore 1854年的诗）：迷人、体贴、完全无私；最重要的是，“她从来没有自己的想法或愿望”。</p>
+        <p class="bi-en" style="margin-top:.8rem;">When she tried to write the truth, the Angel whispered: be tender, flatter and deceive — hide what you really think.</p>
+        <p class="bi-cn">当她想写出真实想法，天使便低语：要温柔、讨好、说假话——藏起你真正的念头。</p>
+        <p class="bi-en" style="margin-top:.8rem;">The Angel was never a real person — she was every “good woman” society expected her to be, living inside her head; to kill her was to silence her inner censor.</p>
+        <p class="bi-cn">这位天使并不存在，她是社会要求她做的每一个“好女人”，活在她自己脑中；杀死她，就是杀死自己脑中的审查者。</p>
+        <div class="quote">
+          <blockquote>“I turned upon her and caught her by the throat. I did my best to kill her.”</blockquote>
+          <div class="quote-cn">“我转过身，一把掐住她的喉咙；我竭尽全力杀死了她。”——不杀死天使，天使就会杀死她心中的作家；这是女性作家职业的一部分。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 18. Lecture III 精讲三：言说真实 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Part III</div>
+    <h2 class="slide-title">精讲三：言说真实的困境</h2>
+    <span class="title-en">The Difficulty of Telling the Truth</span>
+    <div class="split">
+      <div>
+        <p class="bi-en">After the Angel was dead, she hoped simply to “be herself” and write — yet being oneself proved far from simple.</p>
+        <p class="bi-cn">天使死后，她以为可以“做自己”、安心写作——但“做自己”谈何容易。</p>
+        <p class="bi-en" style="margin-top:.8rem;">She found it extraordinarily hard to “tell the truth about my own experiences as a body”; there was no ready language, and what a man could say freely would shock readers from a woman's pen.</p>
+        <p class="bi-cn">她发现“如实讲述自己身体的经验”异常艰难：没有现成的语言，男作家能坦率书写的内容，出自女性之笔便会震惊读者。</p>
+        <p class="bi-en" style="margin-top:.8rem;">The first wall was other people's eyes; the second was her own pen — there was no language a woman could safely use.</p>
+        <p class="bi-cn">第一堵墙是别人的眼光，第二堵墙是自己的笔——当时没有一套女人能安全使用的语言。</p>
+        <p class="bi-en" style="margin-top:.8rem;">The male-dominated professions still met women with prejudice and few precedents.</p>
+        <p class="bi-cn">男性主导的职业世界，仍以偏见和缺乏先例迎接着女性。</p>
+      </div>
+      <figure class="photo-frame">
+        <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/VPwUbbDa8oEuLpxsahLc1yFYnUb" alt="A small printing workshop" data-lightbox>
+        <figcaption>The world of work, opening to women</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 19. Lecture IV 精讲四：新房间与未来 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Part IV</div>
+    <h2 class="slide-title">精讲四：“新房间”与未来</h2>
+    <span class="title-en">The New Rooms, Left to the Next Generation</span>
+    <div class="media-band">
+      <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/IMtNbkBpho16QjxOafhcOftQnvd" alt="A country garden" data-lightbox>
+    </div>
+    <p class="bi-en">Remember the “room of one's own”? Here she imagines professional life as a great house: writing was the first room she opened, while law, medicine and politics were still locked.</p>
+    <p class="bi-cn">还记得前面那间“自己的房间”吗？这里她把职业想成一栋大宅：写作是她推开的第一扇门，法律、医学、政治的门还锁着。</p>
+    <div class="lecture-grid">
+      <div class="lecture-block">
+        <h3><span class="en">The Great House</span><span class="cn">职业如大宅</span></h3>
+        <p class="bi-en">She imagines professional life as a great house with many rooms — some bright, some closed to her — which women were only beginning to enter.</p>
+        <p class="bi-cn">她把职业生活想象成一栋有许多房间的大宅：有的明亮，有的对她紧闭，女性才刚刚开始走入。</p>
+      </div>
+      <div class="lecture-block">
+        <h3><span class="en">Entrusted Forward</span><span class="cn">托付给下一代</span></h3>
+        <p class="bi-en">She admits she could not fully see those rooms or say how to furnish them; that task belonged to the next generation of women.</p>
+        <p class="bi-cn">她坦言自己无法看遍那些房间、也无法回答该如何布置；那是属于下一代女性的任务。</p>
+      </div>
+    </div>
+    <p class="bi-en" style="margin-top:1.2rem;">Her closing words entrust the future — and the freedom to write and work — to the young women listening.</p>
+    <p class="bi-cn">在结尾，她把未来、写作与工作的自由，郑重托付给在场的年轻女性。</p>
+  </div>
+</section>
+
+<!-- ===== 20. The Art 演讲艺术与金句 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">The Art of the Speech</div>
+    <h2 class="slide-title">演讲的艺术与金句</h2>
+    <span class="title-en">Rhetoric and Memorable Lines</span>
+    <div class="lecture-block" style="margin-top:1.6rem;">
+      <h3><span class="en">Craft and Voice</span><span class="cn">艺术特色</span></h3>
+      <p class="bi-en">Wit, irony and self-deprecation; powerful metaphors — the Angel and the house; a first-person, conversational voice; and a deliberate echo of <i>A Room of One's Own</i>.</p>
+      <p class="bi-cn">幽默、反讽与自嘲；“天使”与“房子”的有力隐喻；第一人称的对话感；并与《一间自己的房间》遥相呼应。</p>
+    </div>
+    <div class="gallery">
+      <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/KmFBb5w2io3oPoxY4WvcFtcrnRh" alt="The sea" data-lightbox><figcaption><span class="en">The Waves</span>　海与意识的流动</figcaption></figure>
+      <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/DrECbO0ebonwaSxHhTpc3CiKnmg" alt="Virginia and Leonard" data-lightbox><figcaption><span class="en">Virginia &amp; Leonard</span>　写作与陪伴</figcaption></figure>
+      <figure><img loading="lazy" class="old-photo" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GtOnbirzRoDZTFx4OcVcYkpMnXe" alt="Vita" data-lightbox><figcaption><span class="en">Vita Sackville-West</span>　灵感与友谊</figcaption></figure>
+    </div>
+    <div class="quote">
+      <blockquote>“Killing the Angel in the House was part of the occupation of a woman writer.”</blockquote>
+      <div class="quote-cn">“杀死家中的天使，本就是女性作家职业的一部分。”</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 21. Legacy 文学地位与影响 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="kicker">Legacy</div>
+    <h2 class="slide-title">文学地位与影响</h2>
+    <span class="title-en">A Light Turned Toward the Future</span>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Novels<br>部长篇小说</div></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Languages<br>种语言译本</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">One of three stream-of-consciousness masters<br>意识流三大宗师之一</div></div>
+      <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Years of influence<br>影响逾百年</div></div>
+    </div>
+    <div class="lecture-grid">
+      <div class="lecture-block">
+        <h3><span class="en">Modernist Master</span><span class="cn">现代主义宗师</span></h3>
+        <p class="bi-en">She stands with Joyce and Proust as one of the three great modernist stream-of-consciousness masters.</p>
+        <p class="bi-cn">与乔伊斯、普鲁斯特并称现代主义意识流三大宗师。</p>
+      </div>
+      <div class="lecture-block">
+        <h3><span class="en">Against the Dark</span><span class="cn">向黑暗推进</span></h3>
+        <p class="bi-en">E. M. Forster said she pushed the English language “a little further against the dark.”</p>
+        <p class="bi-cn">福斯特说，她把英语的光芒“向着黑暗又推进了一小步”。</p>
+      </div>
+    </div>
+    <p class="bi-en" style="margin-top:1.2rem;">A watershed between traditional and modern fiction, and a lasting model for feminist writing.</p>
+    <p class="bi-cn">她是传统与现代小说的分水岭，也是女性主义写作的恒久范本。</p>
+  </div>
+</section>
+
+<!-- ===== 22. End 结尾 ===== -->
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="end-wrap">
+      <div class="kicker">In Her Own Words</div>
+      <p class="end-quote">“Lock up your libraries if you like; but there is no gate, no lock, no bolt that you can set upon the freedom of my mind.”</p>
+      <p class="end-cn">“尽管锁上你的图书馆吧——但在我思想的自由之上，没有任何门、任何锁、任何门闩能够安放。”</p>
+      <div class="end-discuss">
+        <div class="en">Discussion — What is the “Angel in the House” still whispering to you today?</div>
+        <div class="cn">讨论：今天当你写作、表达自我时，你心里那个“家中的天使”还在吗？它还在低声说什么？</div>
+      </div>
+      <div class="end-speaker">演讲人<b>王佳琦</b></div>
+      <div class="end-thanks">THANK YOU</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="keyhint en">← → keys &nbsp;·&nbsp; swipe</div>
+<div class="pageno" id="pageno">01 / 22</div>
+
+<!-- 灯箱 -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="放大查看图片">
+  <button class="lb-close" id="lbClose" aria-label="关闭（Esc）">×</button>
+  <img loading="lazy" id="lbImg" src="" alt="">
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<script>
+(function(){
+  var slides=Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total=slides.length,cur=0;
+  var progress=document.getElementById('progress'),pageno=document.getElementById('pageno');
+  var navBtns=Array.prototype.slice.call(document.querySelectorAll('.nav-links button'));
+  var bounds=[[0,2],[3,9],[10,13],[14,19],[20,21]];
+  function pad(n){return(n<10?'0':'')+n;}
+  function secOf(n){for(var i=0;i<bounds.length;i++){if(n>=bounds[i][0]&&n<=bounds[i][1])return i;}return 0;}
+  function go(n){
+    if(n<0)n=0;if(n>total-1)n=total-1;
+    slides[cur].classList.remove('active');cur=n;
+    slides[cur].classList.add('active');slides[cur].scrollTop=0;update();
+  }
+  function update(){
+    progress.style.width=((cur+1)/total*100)+'%';
+    pageno.textContent=pad(cur+1)+' / '+pad(total);
+    var s=secOf(cur);
+    navBtns.forEach(function(b,i){b.classList.toggle('on',i===s);});
+  }
+  function next(){go(cur+1);}function prev(){go(cur-1);}
+  document.addEventListener('keydown',function(e){
+    // 灯箱打开时：仅处理 Escape，其余按键不穿透到底牌
+    if(document.getElementById('lightbox').classList.contains('open')){
+      if(e.key==='Escape'){closeLb();}
+      e.preventDefault();return;
+    }
+    // 焦点在按钮/链接/输入框上时放行原生激活（Enter/Space 触发 click），不劫持翻页
+    var ae=document.activeElement;
+    if(ae&&(ae.tagName==='BUTTON'||ae.tagName==='A'||ae.tagName==='INPUT'||ae.tagName==='TEXTAREA'))return;
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='Enter'){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'||e.key==='Backspace'){e.preventDefault();prev();}
+    else if(e.key==='Home'){go(0);}else if(e.key==='End'){go(total-1);}
+  });
+  Array.prototype.slice.call(document.querySelectorAll('[data-goto]')).forEach(function(el){
+    el.addEventListener('click',function(){go(parseInt(el.getAttribute('data-goto'),10)-1);});
+  });
+  navBtns.forEach(function(b){b.addEventListener('click',function(){go(parseInt(b.getAttribute('data-nav'),10));});});
+  // 移动端菜单
+  var topnav=document.getElementById('topnav'),navToggle=document.getElementById('navToggle');
+  navToggle.addEventListener('click',function(){var open=topnav.classList.toggle('menu-open');navToggle.setAttribute('aria-expanded',open?'true':'false');});
+  navBtns.forEach(function(b){b.addEventListener('click',function(){topnav.classList.remove('menu-open');});});
+  // 触摸滑动
+  var tx=0,ty=0,touching=false;
+  document.addEventListener('touchstart',function(e){
+    if(document.getElementById('lightbox').classList.contains('open')){touching=false;return;}
+    tx=e.touches[0].clientX;ty=e.touches[0].clientY;touching=true;
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(!touching)return;touching=false;
+    var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.2){(dx<0)?next():prev();}
+  },{passive:true});
+  // 灯箱
+  var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCaption=document.getElementById('lbCaption'),lbClose=document.getElementById('lbClose');
+  var lastFocus=null;
+  function openLb(src,cap){lastFocus=document.activeElement;lbImg.src=src;lbImg.alt=cap||'';lbCaption.textContent=cap||'';lb.classList.add('open');lbClose.focus();}
+  function closeLb(){lb.classList.remove('open');lbImg.src='';if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    if(t.hasAttribute&&t.hasAttribute('data-lightbox')){
+      openLb(t.src,t.alt||'');
+    }
+  });
+  update();
+})();
+</script>
+</body>
+</html>
