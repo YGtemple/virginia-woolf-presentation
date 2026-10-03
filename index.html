@@ -67,17 +67,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 .slide--tint{background:transparent;}
 /* 封面与结尾：去除书页卡片，全屏铺陈 */
 .slide:first-child .slide-inner,.slide:last-child .slide-inner{
-  background:none;border:0;box-shadow:inset 0 0 0 0 transparent;width:min(1240px,94%);
+  background:none;border:0;box-shadow:inset 0 0 0 0 transparent;width:min(1120px,94%);
   margin:auto;padding:24px 0;}
-/* 两侧装饰书框（仅宽屏，窄屏隐藏） */
-.slide-inner::before,.slide-inner::after{content:"";position:absolute;top:2%;bottom:2%;width:14px;pointer-events:none;opacity:.5;
-  background:
-   linear-gradient(var(--gold-soft),var(--gold-soft)) left 50% top 10px/1px calc(100% - 20px) no-repeat,
-   linear-gradient(var(--gold-soft),var(--gold-soft)) left 50% top 0/10px 1px no-repeat,
-   linear-gradient(var(--gold-soft),var(--gold-soft)) left 50% bottom 0/10px 1px no-repeat;}
-.slide-inner::before{left:-32px;}
-.slide-inner::after{right:-32px;}
-@media (max-width:1200px){.slide-inner::before,.slide-inner::after{display:none;}}
+/* 封面/结尾为全屏铺陈，不显示书页内侧装订线（外侧书脊由 .side-cover 承担） */
+.slide:first-child .slide-inner::before,.slide:last-child .slide-inner::before,
+.slide:first-child .slide-inner::after,.slide:last-child .slide-inner::after{display:none;}
 
 /* 大图横幅 */
 .media-band{width:100%;height:clamp(130px,16vh,180px);overflow:hidden;border-radius:0;margin:.9rem 0;
@@ -89,13 +83,31 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 .media-band img.fresh{filter:none;}
 .band-cap{font-size:.82rem;line-height:1.5;color:var(--ink-soft);margin:.3rem .1rem 0;}
 .band-cap .en{color:var(--gold-num);font-weight:600;font-style:italic;}
-/* 两侧书框装饰 */
-.side-deco{position:fixed;top:50%;transform:translateY(-50%);z-index:1;width:12px;height:min(70vh,680px);pointer-events:none;display:flex;flex-direction:column;align-items:center;}
-.side-deco.l{left:calc(50% - min(620px,47%) - 44px);}
-.side-deco.r{right:calc(50% - min(620px,47%) - 44px);}
-.side-deco .sd-line{flex:1;width:1px;background:linear-gradient(transparent,var(--gold-soft) 14%,var(--gold-soft) 86%,transparent);}
-.side-deco .sd-mark{width:6px;height:6px;background:var(--gold-soft);transform:rotate(45deg);margin:.45rem 0;display:block;}
-@media (max-width:1320px){.side-deco{display:none;}}
+/* ===== 两侧精装书封面（摊开的书） ===== */
+.side-cover{position:fixed;top:0;bottom:0;width:calc(50% - min(560px,47%));z-index:0;overflow:hidden;pointer-events:none;}
+.bc-l{left:0;background:
+  radial-gradient(120% 55% at 100% 0%,rgba(222,184,124,.18),transparent 52%),
+  radial-gradient(130% 70% at 0% 100%,rgba(0,0,0,.42),transparent 62%),
+  linear-gradient(150deg,#672f34 0%,#4d2126 46%,#341519 100%);}
+.bc-r{right:0;background:
+  radial-gradient(120% 55% at 0% 0%,rgba(222,184,124,.18),transparent 52%),
+  radial-gradient(130% 70% at 100% 100%,rgba(0,0,0,.42),transparent 62%),
+  linear-gradient(210deg,#672f34 0%,#4d2126 46%,#341519 100%);}
+.side-cover::before{content:"";position:absolute;inset:0;opacity:.4;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");}
+.bc-inner{position:absolute;top:104px;bottom:104px;width:2px;}
+.bc-l .bc-inner{right:20px;border-right:1px solid rgba(219,183,121,.62);box-shadow:4px 0 0 -1px rgba(219,183,121,.26);}
+.bc-r .bc-inner{left:20px;border-left:1px solid rgba(219,183,121,.62);box-shadow:-4px 0 0 -1px rgba(219,183,121,.26);}
+.bc-title{position:absolute;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;
+  font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:1.42rem;letter-spacing:.4em;text-transform:uppercase;
+  color:#dcb87c;text-shadow:0 1px 3px rgba(0,0,0,.55);}
+.bc-l .bc-title{right:34px;}
+.bc-r .bc-title{left:34px;}
+.bc-crest{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;color:#d3ad72;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.5));}
+.bc-l .bc-crest{left:42px;}
+.bc-r .bc-crest{right:42px;}
+@media (max-width:1320px){.side-cover{display:none;}}
 
 /* ===== 标题 ===== */
 .kicker{font-family:'Cormorant Garamond',Georgia,serif;font-size:.92rem;letter-spacing:.3em;text-transform:uppercase;
@@ -179,9 +191,11 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 
 /* 两列工具类（替代内联 grid-template-columns，确保 ≤560px 可降级） */
 .cols-2{grid-template-columns:repeat(2,1fr);}
-.book-grid.cols-2{margin-top:1rem;}
-.book-grid.cols-2 .book-cover{aspect-ratio:auto;height:200px;}
-.slide:nth-child(13) .book-grid.cols-2 .book-cover{height:158px;}
+.book-grid.cols-2{grid-template-columns:1fr;gap:1.05rem;margin-top:1.1rem;}
+.book-grid.cols-2 .book{display:grid;grid-template-columns:124px 1fr;gap:1.4rem;align-items:center;
+  border:1px solid var(--line);background:var(--surface);padding:.9rem 1.2rem;}
+.book-grid.cols-2 .book-cover{aspect-ratio:2/3;height:auto;}
+.book-grid.cols-2 .book-meta{margin-top:0;}
 
 /* 时间轴 */
 .timeline{display:grid;grid-template-columns:76px 20px 1fr;margin-top:.7rem;}
@@ -466,8 +480,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
     <h2 class="slide-title">创伤、丧亲与自学</h2>
     <span class="title-en">Trauma, Loss and Self-Education</span>
     <div class="media-band">
-      <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NPQzblL5NoDBJvxPPxtc0OOpnof" alt="A woman writing" data-lightbox>
+      <img loading="lazy" class="fresh" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/EfWabXYEgop3s2xV0ArcQDZyn7e" alt="A study desk by a garden window" data-lightbox>
     </div>
+    <p class="band-cap"><span class="en">Self-Education at Home</span>　书房窗边的书桌——在家受教，在父亲的书房里自由阅读</p>
     <div class="card-grid cols-2">
       <div class="card">
         <span class="card-num">i.</span>
@@ -642,8 +657,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
     <h2 class="slide-title">小说代表作（一）：内心的光</h2>
     <span class="title-en">Mrs Dalloway &amp; To the Lighthouse</span>
     <div class="media-band">
-      <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NLcZbA6o8of1tyxbxv4cOsVgnMb" alt="Lighthouse at dusk" data-lightbox>
+      <img loading="lazy" class="fresh" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Zli6bU9Kbofu6FxC9Kdc4trknNb" alt="A lighthouse at golden dusk" data-lightbox>
     </div>
+    <p class="band-cap"><span class="en">To the Lighthouse</span>　黄昏的灯塔与光束——内心的光，照亮记忆与和解</p>
     <div class="book-grid cols-2">
       <div class="book">
         <div class="book-cover"><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/IoMKbymwIooPjdxZKYNcgbr1nXb" alt="Mrs Dalloway" data-lightbox></div>
@@ -679,16 +695,10 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
         <p class="bi-cn">《海浪》以交织的独白写六位朋友从童年到中年，是她最抒情、最具实验性的作品。</p>
       </div>
     </div>
-    <div class="book-grid cols-2">
-      <div class="book">
-        <div class="book-cover"><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LIBVbVGEposPVSxUuxCcnrEDnBh" alt="Orlando" data-lightbox></div>
-        <div class="book-meta"><div class="book-year">1928</div><h3><span class="en">Orlando</span><span class="cn">奥兰多</span></h3></div>
-      </div>
-      <div class="book">
-        <div class="book-cover"><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/RMS0bDWS0o7LNjx3sfJcIhXvnhc" alt="The Waves" data-lightbox></div>
-        <div class="book-meta"><div class="book-year">1931</div><h3><span class="en">The Waves</span><span class="cn">海浪</span></h3></div>
-      </div>
+    <div class="media-band" style="margin-top:1.5rem;">
+      <img loading="lazy" class="fresh" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/CH3lbRlswobjtTxb3DtcPXXSnxe" alt="Luminous waves under golden light" data-lightbox>
     </div>
+    <p class="band-cap"><span class="en">The Waves</span>　金光下起伏的海浪——时间如潮、独白如浪，也呼应跨越三百年的《奥兰多》</p>
   </div>
 </section>
 
@@ -926,8 +936,16 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 
 </main>
 
-<div class="side-deco l" aria-hidden="true"><span class="sd-mark"></span><span class="sd-line"></span><span class="sd-mark"></span></div>
-<div class="side-deco r" aria-hidden="true"><span class="sd-mark"></span><span class="sd-line"></span><span class="sd-mark"></span></div>
+<div class="side-cover bc-l" aria-hidden="true">
+  <span class="bc-inner"></span>
+  <span class="bc-title">Virginia Woolf</span>
+  <span class="bc-crest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 3.8c-6.8 0-12.7 4.9-13.7 12.6L4 20l3.6-2.5c7.7-1 12.6-6.9 12.6-13.7z"/><path d="M6.4 17.6c2.6-5.6 6.4-9.2 11.8-11.8"/><path d="M8.5 13.5l2 2"/></svg></span>
+</div>
+<div class="side-cover bc-r" aria-hidden="true">
+  <span class="bc-inner"></span>
+  <span class="bc-title">Professions for Women</span>
+  <span class="bc-crest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.2C9.8 4.8 6.6 4.3 3.5 4.6v13.6c3.1-.2 6.3.4 8.5 1.9 2.2-1.5 5.4-2.1 8.5-1.9V4.6c-3.1-.3-6.3.2-8.5 1.6z"/><path d="M12 6.2v13.9"/></svg></span>
+</div>
 <div class="keyhint en">← → keys &nbsp;·&nbsp; swipe</div>
 <div class="nav-arrows" id="navArrows">
   <button class="arrow-btn" id="prevBtn" aria-label="Previous slide">
