@@ -26,6 +26,8 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
 body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-shadow:inset 0 0 190px rgba(74,56,28,.22);}
 ::selection{background:var(--gold);color:#fff;}
 .en{font-family:'Cormorant Garamond',Georgia,serif;}
+.kw{font-weight:700;color:var(--pine);}
+.kw-w{font-weight:700;color:var(--wine);}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
 
 /* ===== 顶部总导航 ===== */
@@ -67,6 +69,15 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 .slide:first-child .slide-inner,.slide:last-child .slide-inner{
   background:none;border:0;box-shadow:inset 0 0 0 0 transparent;width:min(1240px,94%);
   margin:auto;padding:24px 0;}
+/* 两侧装饰书框（仅宽屏，窄屏隐藏） */
+.slide-inner::before,.slide-inner::after{content:"";position:absolute;top:2%;bottom:2%;width:14px;pointer-events:none;opacity:.5;
+  background:
+   linear-gradient(var(--gold-soft),var(--gold-soft)) left 50% top 10px/1px calc(100% - 20px) no-repeat,
+   linear-gradient(var(--gold-soft),var(--gold-soft)) left 50% top 0/10px 1px no-repeat,
+   linear-gradient(var(--gold-soft),var(--gold-soft)) left 50% bottom 0/10px 1px no-repeat;}
+.slide-inner::before{left:-32px;}
+.slide-inner::after{right:-32px;}
+@media (max-width:1200px){.slide-inner::before,.slide-inner::after{display:none;}}
 
 /* 大图横幅 */
 .media-band{width:100%;height:clamp(130px,16vh,180px);overflow:hidden;border-radius:0;margin:.9rem 0;
@@ -74,6 +85,17 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 .media-band img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .6s;
   filter:saturate(.78) sepia(.18) contrast(1.03) brightness(.99);}
 .media-band:hover img{transform:scale(1.04);}
+.band-cap{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:.85rem;color:var(--ink-soft);text-align:center;margin:-.2rem 0 .5rem;}
+.media-band img.fresh{filter:none;}
+.band-cap{font-size:.82rem;line-height:1.5;color:var(--ink-soft);margin:.3rem .1rem 0;}
+.band-cap .en{color:var(--gold-num);font-weight:600;font-style:italic;}
+/* 两侧书框装饰 */
+.side-deco{position:fixed;top:50%;transform:translateY(-50%);z-index:1;width:12px;height:min(70vh,680px);pointer-events:none;display:flex;flex-direction:column;align-items:center;}
+.side-deco.l{left:calc(50% - min(620px,47%) - 44px);}
+.side-deco.r{right:calc(50% - min(620px,47%) - 44px);}
+.side-deco .sd-line{flex:1;width:1px;background:linear-gradient(transparent,var(--gold-soft) 14%,var(--gold-soft) 86%,transparent);}
+.side-deco .sd-mark{width:6px;height:6px;background:var(--gold-soft);transform:rotate(45deg);margin:.45rem 0;display:block;}
+@media (max-width:1320px){.side-deco{display:none;}}
 
 /* ===== 标题 ===== */
 .kicker{font-family:'Cormorant Garamond',Georgia,serif;font-size:.92rem;letter-spacing:.3em;text-transform:uppercase;
@@ -83,6 +105,9 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 .title-en{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(1.1rem,1.8vw,1.4rem);color:var(--wine);margin-top:.3rem;}
 .slide-sub{margin-top:.9rem;max-width:68ch;}
 .bi-en{font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:1.02rem;line-height:1.62;font-variant-ligatures:common-ligatures;font-kerning:normal;}
+.bi-en .kw{font-weight:600;color:var(--pine);}
+.bi-en .kw-w{font-weight:600;color:var(--wine);}
+.bi-en .kw-u{font-weight:600;color:inherit;text-decoration:underline;text-decoration-color:var(--gold-soft);text-underline-offset:3px;}
 .bi-cn{font-size:.9rem;line-height:1.6;color:var(--ink-soft);margin-top:.14rem;font-weight:500;}
 
 /* ===== 布局 ===== */
@@ -199,7 +224,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 /* ===== 封面 ===== */
 .cover{display:grid;grid-template-columns:1.05fr .95fr;height:100%;align-items:center;gap:2.8rem;}
 .cover .cover-kicker{font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-size:.92rem;margin-bottom:1.2rem;padding-left:.3em;}
-.cover h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.8rem,6.6vw,5rem);font-weight:600;line-height:1;}
+.cover h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,4.3vw,3.6rem);font-weight:600;line-height:1.06;white-space:nowrap;}
 .cover .cover-cn{font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:700;margin-top:.6rem;letter-spacing:.28em;}
 .cover .cover-roles{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.18rem;color:var(--pine-soft);margin-top:1rem;}
 .cover .cover-roles-cn{font-size:.88rem;color:var(--ink-soft);margin-top:.24rem;letter-spacing:.14em;}
@@ -237,8 +262,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 
 /* 结尾 */
 .end-wrap{min-height:72vh;display:flex;flex-direction:column;justify-content:center;}
-.end-quote{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(1.6rem,3.2vw,2.5rem);line-height:1.42;max-width:26ch;font-weight:500;color:var(--ink);margin-inline:auto;}
-.end-cn{margin-top:1rem;font-size:1rem;line-height:1.75;color:var(--ink-soft);max-width:54ch;margin-inline:auto;}
+.end-quote{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(1.25rem,2.4vw,1.85rem);line-height:1.55;max-width:100%;width:100%;font-weight:500;color:var(--ink);margin:0;text-align:center;}
+.end-cn{margin-top:.9rem;font-size:1rem;line-height:1.7;color:var(--ink-soft);max-width:100%;text-align:center;}
 .end-speaker{margin-top:2rem;font-size:.98rem;color:var(--ink-soft);}
 .end-speaker b{color:var(--wine);font-size:1.18rem;letter-spacing:.12em;margin-left:.4rem;}
 .end-thanks{margin-top:2.2rem;padding-top:1.2rem;border-top:1px solid var(--line-soft);display:inline-block;align-self:center;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.28rem;letter-spacing:.3em;color:var(--gold);padding-left:.3em;}
@@ -293,7 +318,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
     <button data-nav="0">Home<span class="cn">首页</span></button>
     <button data-nav="3">Life<span class="cn">生平</span></button>
     <button data-nav="10">Works<span class="cn">作品</span></button>
-    <button data-nav="14">Speech<span class="cn">演讲精讲</span></button>
+    <button data-nav="14">Article<span class="cn">文章</span></button>
     <button data-nav="20">Legacy<span class="cn">影响</span></button>
   </div>
   <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-expanded="false"><span></span></button>
@@ -308,13 +333,13 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
     <div class="cover">
       <div>
         <div class="cover-kicker">A Literary Presentation</div>
-        <h1>Virginia<br>Woolf</h1>
+        <h1>Virginia Woolf</h1>
         <div class="cover-cn">弗吉尼亚·伍尔夫</div>
         <div class="cover-roles">Novelist · Essayist · Feminist Icon · 1882–1941</div>
         <div class="cover-roles-cn">小说家 · 散文家 · 女性主义先驱</div>
         <div class="cover-line"></div>
-        <p class="cover-note en">A guided journey through her life, her works and her celebrated speech “Professions for Women.”</p>
-        <p class="cover-note-cn">走进她的人生、作品，以及那篇著名演讲《Professions for Women》。</p>
+        <p class="cover-note en">A guided journey through her life, her works and her celebrated essay “Professions for Women.”</p>
+        <p class="cover-note-cn">走进她的人生、作品，以及那篇著名文章《Professions for Women》。</p>
         <div class="cover-speaker">
           <span class="lbl">演讲人</span><span class="nm">王佳琦</span>
         </div>
@@ -343,7 +368,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
       <button class="toc-item" data-goto="11"><span class="toc-no">08</span><span class="toc-en">Chronology</span><span class="toc-cn">创作年表</span></button>
       <button class="toc-item" data-goto="12"><span class="toc-no">09</span><span class="toc-en">Major Novels</span><span class="toc-cn">小说代表作</span></button>
       <button class="toc-item" data-goto="14"><span class="toc-no">10</span><span class="toc-en">A Room of One's Own</span><span class="toc-cn">一间自己的房间</span></button>
-      <button class="toc-item" data-goto="15"><span class="toc-no">11</span><span class="toc-en">Professions for Women</span><span class="toc-cn">演讲精讲</span></button>
+      <button class="toc-item" data-goto="15"><span class="toc-no">11</span><span class="toc-en">Professions for Women</span><span class="toc-cn">文章</span></button>
       <button class="toc-item" data-goto="21"><span class="toc-no">12</span><span class="toc-en">Legacy</span><span class="toc-cn">文学地位与影响</span></button>
     </div>
   </div>
@@ -699,23 +724,24 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 <!-- ===== 15. Speech Guide 演讲导览 ===== -->
 <section class="slide slide--tint">
   <div class="slide-inner">
-    <div class="kicker">Speech · Guide</div>
-    <h2 class="slide-title">演讲导览</h2>
-    <span class="title-en">Professions for Women</span>
+    <div class="kicker">The Essay</div>
+    <h2 class="slide-title">Professions for Women</h2>
+    <span class="title-en">女性的职业 · 一篇关于女性与写作的文章</span>
     <div class="media-band">
-      <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GYtobMteloOFbyxXwMbc7Blin4f" alt="Women gathering" data-lightbox>
+      <img loading="lazy" class="fresh" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/RTPgbVJZBoxHQYx6da5cIHDAnWc" alt="A woman writing at her desk" data-lightbox>
     </div>
+    <p class="band-cap"><span class="en">A Woman Writing at Her Desk</span>　一位女性在书桌前专注写作，窗外是 1930 年代的城市天际</p>
     <div class="lecture-grid">
       <div class="lecture-block">
         <h3><span class="en">What It Is</span><span class="cn">作品概述</span></h3>
-        <p class="bi-en">“Professions for Women” is a speech Woolf gave to the National Society for Women's Service on 21 January 1931, later collected in <i>The Death of the Moth</i>.</p>
-        <p class="bi-cn">《Professions for Women》是伍尔夫1931年1月21日在全国妇女服务协会发表的演讲，后收入随笔集《飞蛾之死》。</p>
+        <p class="bi-en">“Professions for Women” began as a talk Woolf gave in 1931 and was published as an essay in <i>The Death of the Moth</i>.</p>
+        <p class="bi-cn">《Professions for Women》源自伍尔夫1931年的一次讲话，后作为随笔收入《飞蛾之死》。</p>
       </div>
       <div class="lecture-block">
         <h3><span class="en">At a Glance</span><span class="cn">关键信息</span></h3>
         <dl class="speech-meta">
           <dt>Date 时间</dt><dd class="en">21 January 1931</dd>
-          <dt>Venue 场合</dt><dd class="en">National Society for Women's Service</dd>
+          <dt>Form 文体</dt><dd class="en">Essay · 随笔</dd>
           <dt>Theme 主题</dt><dd>Women, work and the freedom to write　女性、职业与写作的自由</dd>
         </dl>
       </div>
@@ -728,21 +754,21 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 <!-- ===== 16. Lecture I 精讲一：女性先驱 ===== -->
 <section class="slide slide--tint">
   <div class="slide-inner">
-    <div class="kicker">Part I</div>
-    <h2 class="slide-title">精讲一：写作这门职业</h2>
+    <div class="kicker">Professions for Women</div>
+    <h2 class="slide-title">Part One · 写作这门职业</h2>
     <span class="title-en">The Pioneers Who Cleared the Road</span>
     <div class="split">
       <div>
-        <p class="bi-en">Woolf opens by noting that in literature, fewer “experiences peculiar to women” existed — because the road had been cut long before.</p>
+        <p class="bi-en">Woolf opens by noting that in literature, fewer <span class="kw">“experiences peculiar to women”</span> existed — because <span class="kw">the road had been cut</span> long before.</p>
         <p class="bi-cn">伍尔夫开场便说，在文学这一行，女性特有的经历反而更少——因为道路早被前人开辟出来。</p>
-        <p class="bi-en" style="margin-top:.8rem;">She names Aphra Behn, Fanny Burney, Harriet Martineau, Jane Austen and George Eliot — women who smoothed the path and “regulated my steps.”</p>
+        <p class="bi-en" style="margin-top:.8rem;">She names Aphra Behn, Fanny Burney, Harriet Martineau, Jane Austen and George Eliot — women who smoothed the path and <span class="kw">“regulated my steps.”</span></p>
         <p class="bi-cn">她列举 Aphra Behn、Fanny Burney、Harriet Martineau、Jane Austen、George Eliot——这些女性铺平了道路、“规范了我的步伐”。</p>
-        <p class="bi-en" style="margin-top:.8rem;">Writing was cheap, private and “reputable and harmless”; it did not disturb the peace of the family.</p>
+        <p class="bi-en" style="margin-top:.8rem;">Writing was cheap, private and <span class="kw">“reputable and harmless”</span>; it did not disturb the peace of the family.</p>
         <p class="bi-cn">写作成本低廉、可在家中私下进行，“体面而无害”，不会惊扰家庭的安宁。</p>
       </div>
       <div class="gallery" style="grid-template-columns:1fr;">
-        <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NNkrbkU7Mo4GLZxXgticnl6Snhb" alt="Aphra Behn" data-lightbox><figcaption><span class="en">Aphra Behn</span>　英国最早以写作为生的女性之一</figcaption></figure>
-        <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/QSoobqpxxo1GbuxkM4OcTtgSnvd" alt="Jane Austen" data-lightbox><figcaption><span class="en">Jane Austen</span>　为女性小说开辟道路</figcaption></figure>
+        <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/QJDvb6rT8on6nuxa1hqcZvSvn4g" alt="Aphra Behn portrait" data-lightbox><figcaption><span class="en">Aphra Behn (1640–1689)</span>　英国最早以写作为生的女性，17 世纪油画肖像</figcaption></figure>
+        <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/QSoobqpxxo1GbuxkM4OcTtgSnvd" alt="Jane Austen" data-lightbox><figcaption><span class="en">Jane Austen (1775–1817)</span>　为女性小说开辟道路</figcaption></figure>
       </div>
     </div>
   </div>
@@ -751,20 +777,20 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 <!-- ===== 17. Lecture II 精讲二：杀死天使（重点） ===== -->
 <section class="slide slide--tint">
   <div class="slide-inner">
-    <div class="kicker">Part II</div>
-    <h2 class="slide-title">精讲二：杀死“家中的天使”</h2>
+    <div class="kicker">Professions for Women</div>
+    <h2 class="slide-title">Part Two · 杀死“家中的天使”</h2>
     <span class="title-en">Killing the Angel in the House</span>
     <div class="split">
       <figure class="photo-frame">
-        <img loading="lazy" class="old-photo" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/XNaab9keuoAzDWxFoAOc04ElnTg" alt="The ideal Victorian woman" data-lightbox>
-        <figcaption>The ideal woman of the age</figcaption>
+        <img loading="lazy" style="object-position:center 38%;" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GEtubpwCDo3vcwxJdxLcqk5tnBh" alt="The Angel's shadow falling over a woman as she writes" data-lightbox>
+        <figcaption>The Angel&rsquo;s shadow, falling over her as she writes</figcaption>
       </figure>
       <div>
-        <p class="bi-en">Behind her as she wrote stood the “Angel in the House,” from Coventry Patmore's 1854 poem — charming, sympathetic and utterly unselfish; above all, “she never had a mind or a wish of her own.”</p>
+        <p class="bi-en">Behind her as she wrote stood the <span class="kw-w">“Angel in the House,”</span> from Coventry Patmore's 1854 poem — charming, sympathetic and utterly unselfish; above all, <span class="kw">“she never had a mind or a wish of her own.”</span></p>
         <p class="bi-cn">写作时，她身后站着“家中的天使”（出自 Coventry Patmore 1854年的诗）：迷人、体贴、完全无私；最重要的是，“她从来没有自己的想法或愿望”。</p>
-        <p class="bi-en" style="margin-top:.8rem;">When she tried to write the truth, the Angel whispered: be tender, flatter and deceive — hide what you really think.</p>
+        <p class="bi-en" style="margin-top:.8rem;">When she tried to write the truth, the Angel whispered: <span class="kw">be tender, flatter and deceive</span> — hide what you really think.</p>
         <p class="bi-cn">当她想写出真实想法，天使便低语：要温柔、讨好、说假话——藏起你真正的念头。</p>
-        <p class="bi-en" style="margin-top:.8rem;">The Angel was never a real person — she was every “good woman” society expected her to be, living inside her head; to kill her was to silence her inner censor.</p>
+        <p class="bi-en" style="margin-top:.8rem;">The Angel was never a real person — she was every “good woman” society expected her to be, living inside her head; to kill her was to silence her <span class="kw">inner censor</span>.</p>
         <p class="bi-cn">这位天使并不存在，她是社会要求她做的每一个“好女人”，活在她自己脑中；杀死她，就是杀死自己脑中的审查者。</p>
         <div class="quote">
           <blockquote>“I turned upon her and caught her by the throat. I did my best to kill her.”</blockquote>
@@ -778,16 +804,16 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 <!-- ===== 18. Lecture III 精讲三：言说真实 ===== -->
 <section class="slide slide--tint">
   <div class="slide-inner">
-    <div class="kicker">Part III</div>
-    <h2 class="slide-title">精讲三：言说真实的困境</h2>
+    <div class="kicker">Professions for Women</div>
+    <h2 class="slide-title">Part Three · 言说真实的困境</h2>
     <span class="title-en">The Difficulty of Telling the Truth</span>
     <div class="split">
       <div>
-        <p class="bi-en">After the Angel was dead, she hoped simply to “be herself” and write — yet being oneself proved far from simple.</p>
+        <p class="bi-en">After the Angel was dead, she hoped simply to <span class="kw">“be herself”</span> and write — yet being oneself proved far from simple.</p>
         <p class="bi-cn">天使死后，她以为可以“做自己”、安心写作——但“做自己”谈何容易。</p>
-        <p class="bi-en" style="margin-top:.8rem;">She found it extraordinarily hard to “tell the truth about my own experiences as a body”; there was no ready language, and what a man could say freely would shock readers from a woman's pen.</p>
+        <p class="bi-en" style="margin-top:.8rem;">She found it extraordinarily hard to <span class="kw-w">“tell the truth about my own experiences as a body”</span>; there was <span class="kw">no ready language</span>, and what a man could say freely would shock readers from a woman's pen.</p>
         <p class="bi-cn">她发现“如实讲述自己身体的经验”异常艰难：没有现成的语言，男作家能坦率书写的内容，出自女性之笔便会震惊读者。</p>
-        <p class="bi-en" style="margin-top:.8rem;">The first wall was other people's eyes; the second was her own pen — there was no language a woman could safely use.</p>
+        <p class="bi-en" style="margin-top:.8rem;"><span class="kw">The first wall was other people's eyes; the second was her own pen</span> — there was no language a woman could safely use.</p>
         <p class="bi-cn">第一堵墙是别人的眼光，第二堵墙是自己的笔——当时没有一套女人能安全使用的语言。</p>
         <p class="bi-en" style="margin-top:.8rem;">The male-dominated professions still met women with prejudice and few precedents.</p>
         <p class="bi-cn">男性主导的职业世界，仍以偏见和缺乏先例迎接着女性。</p>
@@ -803,13 +829,14 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 <!-- ===== 19. Lecture IV 精讲四：新房间与未来 ===== -->
 <section class="slide slide--tint">
   <div class="slide-inner">
-    <div class="kicker">Part IV</div>
-    <h2 class="slide-title">精讲四：“新房间”与未来</h2>
+    <div class="kicker">Professions for Women</div>
+    <h2 class="slide-title">Part Four · “新房间”与未来</h2>
     <span class="title-en">The New Rooms, Left to the Next Generation</span>
     <div class="media-band">
-      <img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/IMtNbkBpho16QjxOafhcOftQnvd" alt="A country garden" data-lightbox>
+      <img loading="lazy" class="fresh" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/KlwmbVvvGoxE35x58TBctWtcnRg" alt="A woman opening a door of light in a long corridor" data-lightbox>
     </div>
-    <p class="bi-en">Remember the “room of one's own”? Here she imagines professional life as a great house: writing was the first room she opened, while law, medicine and politics were still locked.</p>
+    <p class="band-cap">推开那扇透光的门——那些尚待女性进入的“新房间”</p>
+    <p class="bi-en">Remember the “room of one's own”? Here she imagines professional life as <span class="kw">a great house</span>: writing was <span class="kw">the first room</span> she opened, while law, medicine and politics were <span class="kw-w">still locked</span>.</p>
     <p class="bi-cn">还记得前面那间“自己的房间”吗？这里她把职业想成一栋大宅：写作是她推开的第一扇门，法律、医学、政治的门还锁着。</p>
     <div class="lecture-grid">
       <div class="lecture-block">
@@ -831,18 +858,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 <!-- ===== 20. The Art 演讲艺术与金句 ===== -->
 <section class="slide slide--tint">
   <div class="slide-inner">
-    <div class="kicker">The Art of the Speech</div>
-    <h2 class="slide-title">演讲的艺术与金句</h2>
-    <span class="title-en">Rhetoric and Memorable Lines</span>
+    <div class="kicker">Professions for Women</div>
+    <h2 class="slide-title">文章的语言与金句</h2>
+    <span class="title-en">Language and Memorable Lines</span>
     <div class="lecture-block" style="margin-top:1.6rem;">
       <h3><span class="en">Craft and Voice</span><span class="cn">艺术特色</span></h3>
-      <p class="bi-en">Wit, irony and self-deprecation; powerful metaphors — the Angel and the house; a first-person, conversational voice; and a deliberate echo of <i>A Room of One's Own</i>.</p>
+      <p class="bi-en"><span class="kw">Wit, irony and self-deprecation</span>; powerful metaphors — <span class="kw">the Angel and the house</span>; a first-person, conversational voice; and a deliberate echo of <i>A Room of One's Own</i>.</p>
       <p class="bi-cn">幽默、反讽与自嘲；“天使”与“房子”的有力隐喻；第一人称的对话感；并与《一间自己的房间》遥相呼应。</p>
     </div>
     <div class="gallery">
-      <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/KmFBb5w2io3oPoxY4WvcFtcrnRh" alt="The sea" data-lightbox><figcaption><span class="en">The Waves</span>　海与意识的流动</figcaption></figure>
-      <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/DrECbO0ebonwaSxHhTpc3CiKnmg" alt="Virginia and Leonard" data-lightbox><figcaption><span class="en">Virginia &amp; Leonard</span>　写作与陪伴</figcaption></figure>
-      <figure><img loading="lazy" class="old-photo" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GtOnbirzRoDZTFx4OcVcYkpMnXe" alt="Vita" data-lightbox><figcaption><span class="en">Vita Sackville-West</span>　灵感与友谊</figcaption></figure>
+      <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/CZQGbjTMUo0RKJxVFNwcyjqVnnh" alt="Aged handwritten manuscript pages" data-lightbox><figcaption><span class="en">The Manuscript</span>　泛黄手稿上的流畅笔迹</figcaption></figure>
+      <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/SCZEbUFfFo3KZPxYK12cu68bnub" alt="A feather quill in a brass inkwell" data-lightbox><figcaption><span class="en">The Quill</span>　羽毛笔与墨水瓶，文章由此诞生</figcaption></figure>
+      <figure><img loading="lazy" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/IUjJbgeQOoxFoAxASodcwS1Tn2c" alt="An open book with a fountain pen resting on it" data-lightbox><figcaption><span class="en">The Open Book</span>　翻开的书与横放的钢笔</figcaption></figure>
     </div>
     <div class="quote">
       <blockquote>“Killing the Angel in the House was part of the occupation of a woman writer.”</blockquote>
@@ -899,6 +926,8 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;box-
 
 </main>
 
+<div class="side-deco l" aria-hidden="true"><span class="sd-mark"></span><span class="sd-line"></span><span class="sd-mark"></span></div>
+<div class="side-deco r" aria-hidden="true"><span class="sd-mark"></span><span class="sd-line"></span><span class="sd-mark"></span></div>
 <div class="keyhint en">← → keys &nbsp;·&nbsp; swipe</div>
 <div class="nav-arrows" id="navArrows">
   <button class="arrow-btn" id="prevBtn" aria-label="Previous slide">
